@@ -20,8 +20,10 @@ if (process.env.NODE_ENV === "production") {
   // Fallback for SPA routing
   app.get("*", (req, res, next) => {
     const filePath = path.resolve(_dirname, "frontend", "dist", "index.html");
+    console.log(filePath);
     res.sendFile(filePath, (err) => {
       if (err) {
+        console.error(err);
         res.status(500).send("Error loading the frontend.");
       }
     });
