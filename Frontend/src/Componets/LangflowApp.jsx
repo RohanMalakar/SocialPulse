@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function LangflowApp() {
     const [inputMessage, setInputMessage] = useState('');
-    //const [response, setResponse] = useState('');
+    const [response, setResponse] = useState('');
     const [history, setHistory] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -64,7 +64,7 @@ function LangflowApp() {
         if (!inputMessage) return;
         setLoading(true);
         try {
-            const res = await fetch('http://localhost:4002/api/v1/langflow/run-flow', {
+            const res = await fetch('http://localhost:4001/api/v1/langflow/run-flow', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -85,7 +85,6 @@ function LangflowApp() {
                 newHistory.response = data.output;
                 setHistory([...history, newHistory]);
             }
-            setResponse(data.output || data.error);
         } catch (error) {
             console.error('Error:', error);
             setResponse('Failed to get a response from the server.');
@@ -133,6 +132,14 @@ function LangflowApp() {
                             </div>
                         </div>
                     ))
+                )}
+                {response && (
+                    <div className="mt-4 flex flex-col gap-1 w-full p-4 bg-purple-950 text-white rounded-lg">
+                        <span className="font-bold mb-2">error:</span>
+                        <div className="text-sm w-full border rounded-md p-5 text-white">
+                            {(response)}
+                        </div>
+                    </div>
                 )}
             </div>
         </div>

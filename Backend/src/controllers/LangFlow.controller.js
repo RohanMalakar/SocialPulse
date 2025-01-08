@@ -1,6 +1,6 @@
 // controller.js
 
-import LangflowClient from '../utils/LangflowClient.js';
+import LangflowClient from "../utils/LangflowClient.js";
 
 // Define the controller method to handle requests
 const runLangflow = async (req, res) => {
