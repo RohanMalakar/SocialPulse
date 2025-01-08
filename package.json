@@ -1,12 +1,14 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "youtube clone",
+  "description": "Level super mind hackthon",
   "main": "src/index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon Backend/src/index.js",
+    "build": "npm install && npm install --prefix Frontend && npm run build --prefix Frontend",
+    "start": "node Backend/src/index.js"
   },
   "author": "Rohan malakar",
   "license": "ISC",
