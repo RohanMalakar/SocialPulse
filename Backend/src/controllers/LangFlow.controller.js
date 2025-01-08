@@ -5,7 +5,6 @@ import LangflowClient from '../utils/LangflowClient.js';
 // Define the controller method to handle requests
 const runLangflow = async (req, res) => {
     const { inputValue, inputType = 'chat', outputType = 'chat', stream = false, tweaks = {} } = req.body;
-    console.log('inputValue:', inputValue);
     const flowIdOrName = 'social_media';
     const langflowId = process.env.LANGFLOW_ID;
     const applicationToken = process.env.LANGFLOW_TOKEN;

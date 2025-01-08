@@ -64,7 +64,7 @@ function LangflowApp() {
         if (!inputMessage) return;
         setLoading(true);
         try {
-            const res = await fetch('http://localhost:3001/api/v1/langflow/run-flow', {
+            const res = await fetch('http://localhost:4002/api/v1/langflow/run-flow', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
